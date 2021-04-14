@@ -21,7 +21,7 @@ def do_pack():
                                                               date_time.hour,
                                                               date_time.minute,
                                                               date_time.second)
-    compress = local("tar -cvf {} web_static".format(file_path))
+    compress = local("tar -cvzf {} web_static".format(file_path))
     if create_dir.failed or compress.failed:
         return None
     return file_path
