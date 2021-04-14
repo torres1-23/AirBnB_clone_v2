@@ -14,7 +14,7 @@ def do_pack():
     """Generates a .tgz archive from the contents of the web_static folder of
     your AirBnB Clone repo."""
     date_time = datetime.now()
-    create_dir = local("mkdir -p versions", capture=True)
+    create_dir = local("mkdir -p versions")
     file_path = "versions/web_static_{}{}{}{}{}{}.tgz".format(date_time.year,
                                                               date_time.month,
                                                               date_time.day,
