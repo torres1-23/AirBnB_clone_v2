@@ -8,7 +8,6 @@ Usage:
 """
 from os import path
 from fabric.api import env, put, run
-from datetime import datetime
 
 env.hosts = ['35.196.220.11', '35.196.58.181']
 
@@ -41,9 +40,7 @@ def do_deploy(archive_path):
     if run("rm -rf /data/web_static/releases/{}/web_static"
             .format(name)).failed:
         return False
-    if run("rm -rf /data/web_static/current").failed:
-        return False
-    if run("ln -s /data/web_static/releases/{}/ /data/web_static/current"
+    if run("ln -sfn /data/web_static/releases/{}/ /data/web_static/current"
             .format(name)).failed:
         return False
     return True
