@@ -3,7 +3,7 @@
 $conf = "server {
     listen 80 default_server;
     listen [::]:80 default_server;
-    add_header X-Served-By $HOSTNAME;
+    add_header X-Served-By ${HOSTNAME};
     root /var/www/html;
     index index.html index.htm;
     server_name _;
@@ -15,47 +15,48 @@ $conf = "server {
     }
     error_page 404 /404.html;
 }"
-->
+
 package { 'nginx':
   ensure   => present,
   provider => 'apt'
 }
-->
+
 # create direcotries /data/web_static/shared/
-file { '/data/web_static/shared':
+-> file { '/data/web_static/shared':
   ensure => directory
 }
-->
+
 # create direcotries /data/web_static/shared/
-file { '/data/web_static/releases/test':
+-> file { '/data/web_static/releases/test':
   ensure => directory
 }
-->
-file { '/data/web_static/releases/test/index.html':
+
+-> file { '/data/web_static/releases/test/index.html':
   ensure  => present,
   content => 'Holberton School',
   owner   => 'ubuntu',
   group   => 'ubuntu'
 }
-->
-exec { 'symbolik link':
+
+-> exec { 'symbolik link':
   command  => 'ln -sfn /data/web_static/releases/test/ /data/web_static/current',
   user     => 'root',
   provider => 'shell'
 }
-->
-file { '/data':
+
+-> file { '/data':
   ensure  => directory,
   user    => 'ubuntu',
   group   => 'ubuntu',
   recurse => true
 }
-->
-file { '/etc/nginx/sites-available/default':
+
+-> file { '/etc/nginx/sites-available/default':
   ensure  => 'present',
   content => $conf
-->
-exec { 'Start nginx':
+}
+
+-> exec { 'Start nginx':
   command  => 'service nginx restart',
   user     => 'root',
   provider => 'shell'
