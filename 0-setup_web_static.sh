@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 # Script that sets up the web servers for the deployment of web_static.
-STRING="\    location /hbnb_static {\n\
-        alias /data/web_static/current;\n\
-    }"
 apt-get update -y
 apt-get install -y nginx
 mkdir -p /data/web_static/releases/test/
