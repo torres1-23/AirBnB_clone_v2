@@ -53,7 +53,7 @@ file { '/data':
 ->
 file { '/etc/nginx/sites-available/default':
   ensure  => 'present',
-  content => $nginx_conf
+  content => $conf
 ->
 exec { 'Start nginx':
   command  => 'service nginx restart',
