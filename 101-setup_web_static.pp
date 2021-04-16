@@ -68,6 +68,8 @@ package { 'nginx':
   content => "Ceci n'est pas une page\n"
 }
 
--> exec { 'nginx restart':
-  path => '/etc/init.d/'
+-> exec { 'Start nginx':
+  command  => 'service nginx restart',
+  user     => 'root',
+  provider => 'shell'
 }
