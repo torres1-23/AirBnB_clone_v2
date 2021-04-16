@@ -7,9 +7,10 @@ Usage:
     -i <path to private key> -u <user_name>"
 """
 import os
-from fabric.api import local, run
+from fabric.api import local, run, env
 
 env.hosts = ["35.196.220.11", "35.196.58.181"]
+
 
 def do_clean(number=0):
     """Cleans out-of-date archives.
@@ -23,7 +24,7 @@ def do_clean(number=0):
         int(number)
     archives = sorted(os.listdir("versions"))
     for i in range(number):
-        archives.pop() 
+        archives.pop()
     with lcd("versions"):
         for a in archives:
             local("rm ./{}".format(a))
@@ -35,4 +36,4 @@ def do_clean(number=0):
         for i in range(number):
             archives.pop()
         for a in archives:
-            run("rm -rf ./{}".format(a)) 
+            run("rm -rf ./{}".format(a))
