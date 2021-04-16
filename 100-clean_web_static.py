@@ -7,7 +7,7 @@ Usage:
     -i <path to private key> -u <user_name>"
 """
 import os
-from fabric.api import local, run, env
+from fabric.api import local, run, env, cd, lcd
 
 env.hosts = ["35.196.220.11", "35.196.58.181"]
 
@@ -18,22 +18,21 @@ def do_clean(number=0):
     Args:
         number (int): The number of archives to keep.
     """
-    filenames = []
-    local("ls -1 versions | sort -r > versionfiles")
-    with open('versionfiles') as f:
-        fileslines = f.read()
-    for fileline in fileslines:
-        if len(fileline) == 29 and fileline[:11] == "web_static_" and \
-                          fileline[-4:] == ".tgz":
-            filenames.append(fileline)
-    if number < 2:
-        if len(filenames) <= 1:
-            return
-        del_after_index = 1
+    try:
+        number = int(number)
+    except:
+        return None
+    if number < 0:
+        return None
+    if (number is 0 or number is 1):
+        number = 2
     else:
-        if number <= len(filenames):
-            return
-        del_after_index = number
-    for i in range(del_after_index, len(filenames)):
-        local("rm versions/{}".format(filenames[i]))
-        run("rm -rf /data/web_static/releases/{}".format(filenames[i][:-4]))
+        number += 1
+    r_path = "/data/web_static/releases/"
+    l_path = "./versions"
+    with lcd(l_path):
+        local('ls -t | tail -n +{} | xargs rm -rf --'.
+              format(number))
+    with cd(r_path):
+        run('ls -t | tail -n +{} | xargs rm -rf --'.
+            format(number))
