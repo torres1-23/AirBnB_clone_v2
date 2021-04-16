@@ -18,22 +18,22 @@ def do_clean(number=0):
     Args:
         number (int): The number of archives to keep.
     """
-    if int(number) == 0:
-        number = 1
+    filenames = []
+    local("ls -1 versions | sort -r > versionfiles")
+    with open('versionfiles') as f:
+        fileslines = f.read()
+    for fileline in fileslines:
+        if len(fileline) == 29 and fileline[:11] == "web_static_" and \
+                          fileline[-4:] == ".tgz":
+            filenames.append(fileline)
+    if number < 2:
+        if len(filenames) <= 1:
+            return
+        del_after_index = 1
     else:
-        int(number)
-    archives = sorted(os.listdir("versions"))
-    for i in range(number):
-        archives.pop()
-    with lcd("versions"):
-        for a in archives:
-            local("rm ./{}".format(a))
-    with cd("/data/web_static/releases"):
-        archives = run("ls -tr").split()
-        for a in archives:
-            if "web_static_" in a:
-                archives = a
-        for i in range(number):
-            archives.pop()
-        for a in archives:
-            run("rm -rf ./{}".format(a))
+        if number <= len(filenames):
+            return
+        del_after_index = number
+    for i in range(del_after_index, len(filenames)):
+        local("rm versions/{}".format(filenames[i]))
+        run("rm -rf /data/web_static/releases/{}".format(filenames[i][:-4]))
