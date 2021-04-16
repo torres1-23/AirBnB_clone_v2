@@ -22,11 +22,18 @@ package { 'nginx':
 }
 
 # create direcotries /data/web_static/shared/
+-> file { '/data':
+  ensure  => directory,
+  owner   => 'ubuntu',
+  group   => 'ubuntu',
+  recurse => true
+}
+
 -> file { '/data/web_static/shared':
   ensure => directory
 }
 
-# create direcotries /data/web_static/shared/
+# create direcotries /data/web_static/releases/
 -> file { '/data/web_static/releases/test':
   ensure => directory
 }
@@ -44,11 +51,9 @@ package { 'nginx':
   provider => 'shell'
 }
 
--> file { '/data':
-  ensure  => directory,
-  user    => 'ubuntu',
-  group   => 'ubuntu',
-  recurse => true
+-> file { '/var/www/html/404.html':
+  ensure  => 'present',
+  content => "Ceci n'est pas une page\n"
 }
 
 -> file { '/etc/nginx/sites-available/default':
