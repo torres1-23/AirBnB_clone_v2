@@ -55,11 +55,6 @@ package { 'nginx':
   path => '/usr/bin/:/usr/local/bin/:/bin/'
 }
 
--> file { '/var/www/html/404.html':
-  ensure  => 'present',
-  content => "Ceci n'est pas une page"
-}
-
 -> file { '/etc/nginx/sites-available/default':
   ensure  => 'present',
   content => $conf
