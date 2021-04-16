@@ -30,8 +30,8 @@ def do_clean(number=0):
             local("rm ./{}".format(a))
     with cd("/data/web_static/releases"):
         archives = run("ls -tr").split()
-        if "web_static_" in a:
-            for a in archives:
+        for a in archives:
+            if "web_static_" in a:
                 archives = a
         for i in range(number):
             archives.pop()
