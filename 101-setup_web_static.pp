@@ -48,7 +48,7 @@ package { 'nginx':
 -> file { '/data/web_static/current':
     ensure => 'link',
     target => '/data/web_static/releases/test',
-  }
+}
 
 -> exec { 'chown -R ubuntu:ubuntu /data/':
   path => '/usr/bin/:/usr/local/bin/:/bin/'
