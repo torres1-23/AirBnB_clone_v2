@@ -13,6 +13,7 @@ $conf = "server {
     location /redirect_me {
         return 301 https://www.youtube.com/watch?v=dQw4w9WgXcQ;
     }
+    error_page 404 /404.html;
 }"
 
 package { 'nginx':
@@ -44,11 +45,10 @@ package { 'nginx':
   content => 'Holberton School',
 }
 
--> exec { 'symbolik link':
-  command  => 'ln -sfn /data/web_static/releases/test/ /data/web_static/current',
-  user     => 'root',
-  provider => 'shell'
-}
+-> file { '/data/web_static/current':
+    ensure => 'link',
+    target => '/data/web_static/releases/test',
+  }
 
 -> exec { 'chown -R ubuntu:ubuntu /data/':
   path => '/usr/bin/:/usr/local/bin/:/bin/'
@@ -57,6 +57,11 @@ package { 'nginx':
 -> file { '/etc/nginx/sites-available/default':
   ensure  => 'present',
   content => $conf
+}
+
+-> file { '/var/www/html/404.html':
+  ensure  => 'present',
+  content => "Ceci n'est pas une page\n"
 }
 
 -> exec { 'Start nginx':
