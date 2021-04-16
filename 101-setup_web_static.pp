@@ -13,7 +13,6 @@ $conf = "server {
     location /redirect_me {
         return 301 https://www.youtube.com/watch?v=dQw4w9WgXcQ;
     }
-    error_page 404 /404.html;
 }"
 
 package { 'nginx':
