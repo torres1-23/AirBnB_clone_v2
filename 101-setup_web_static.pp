@@ -43,8 +43,6 @@ package { 'nginx':
 -> file { '/data/web_static/releases/test/index.html':
   ensure  => present,
   content => 'Holberton School',
-  owner   => 'ubuntu',
-  group   => 'ubuntu'
 }
 
 -> exec { 'symbolik link':
@@ -59,7 +57,7 @@ package { 'nginx':
 
 -> file { '/var/www/html/404.html':
   ensure  => 'present',
-  content => "Ceci n'est pas une page\n"
+  content => "Ceci n'est pas une page"
 }
 
 -> file { '/etc/nginx/sites-available/default':
