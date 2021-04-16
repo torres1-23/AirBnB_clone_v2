@@ -21,14 +21,6 @@ package { 'nginx':
   provider => 'apt'
 }
 
-# create direcotries /data/web_static/shared/
--> file { '/data':
-  ensure  => directory,
-  owner   => 'ubuntu',
-  group   => 'ubuntu',
-  recurse => true
-}
-
 -> file { '/data/web_static/shared':
   ensure => directory
 }
@@ -49,6 +41,10 @@ package { 'nginx':
   command  => 'ln -sfn /data/web_static/releases/test/ /data/web_static/current',
   user     => 'root',
   provider => 'shell'
+}
+
+-> exec { 'chown -R ubuntu:ubuntu /data/':
+  path => '/usr/bin/:/usr/local/bin/:/bin/'
 }
 
 -> file { '/var/www/html/404.html':
