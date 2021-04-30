@@ -142,5 +142,5 @@ Usage: <class_name>.update(<_id>, <dictionary>)
 <br>
 
 ## Authors
-Alejandro Torres
+Alejandro Torres\
 Wiston Venera
