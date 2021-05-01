@@ -3,6 +3,7 @@
 import models
 from os import getenv
 from models.base_model import BaseModel, Base
+from models.city import City
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
@@ -22,7 +23,7 @@ class State(BaseModel, Base):
         @property
         def cities(self):
             """Puto el que lo lea"""
-            city_dict = models.FileStorage.all(City)
+            city_dict = models.storage.all(City)
             city_list = []
             for city in city_dict.values():
                 if (city.state_id == self.id):
