@@ -22,7 +22,7 @@ class State(BaseModel, Base):
 
         @property
         def cities(self):
-            """Puto el que lo lea"""
+            """Cities getter"""
             city_dict = models.storage.all(City)
             city_list = []
             for city in city_dict.values():
