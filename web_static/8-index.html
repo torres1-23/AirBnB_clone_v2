@@ -1,129 +1,191 @@
 <!DOCTYPE html>
+<!--Complete Index page-->
 <html lang="en">
-	<head>
-		<title>AirBnB clone</title>
-
-		<link rel="shortcut icon" href="images/icon.ico" >
-
-		<link rel="stylesheet" href="styles/4-common.css"/>
-		<link rel="stylesheet" href="styles/3-header.css"/>
-		<link rel="stylesheet" href="styles/3-footer.css"/>
-		<link rel="stylesheet" href="styles/6-filters.css"/>
-		<link rel="stylesheet" href="styles/8-places.css"/>
-	</head>
+    <head>
+        <title>AirBnB Clone</title>
+        <meta charset="utf-8">
+        <link rel="icon" href="images/icon.png">
+        <link rel="stylesheet" href="styles/4-common.css">
+        <link rel="stylesheet" href="styles/3-header.css">
+        <link rel="stylesheet" href="styles/6-filters.css">
+        <link rel="stylesheet" href="styles/3-footer.css">
+        <link rel="stylesheet" href="styles/8-places.css">
+        <script src="https://kit.fontawesome.com/3168ba9115.js" crossorigin="anonymous"></script>
+    </head>
     <body>
-		<header>
-			<div id="header_logo"></div>
-		</header>
-		<div class="container">
-			<section class="filters">
-				<button>Search</button>
-				<div class="locations">
-					<h3>States</h3>
-					<h4>California, Arizona...</h4>
-					<ul class="popover">
-						<li><h2>Arizona</h2>
-							<ul>
-								<li><h4>Page</h4></li>
-								<li><h4>Page2</h4></li>
-							</ul></li>
-						<li><h2>California</h2>
-							<ul>
-								<li><h4>San Francisco</h4></li>
-								<li><h4>Los Altos</h4></li>
-							</ul></li>
-					</ul>
-				</div>
-				<div class="amenities">
-					<h3>Amenities</h3>
-					<h4>Internet, Kitchen...</h4>
-					<ul class="popover">
-						<li><h4>Internet</h4></li>
-						<li><h4>TV</h4></li>
-						<li><h4>Kitchen</h4></li>
-						<li><h4>Iron</h4></li>
-					</ul>
-				</div>
-
-			</section>
-			<section class="places">
-				<h1>Places</h1>
-				<article>
-					<div class="headline">
-						<h2>My home</h2>
-						<div class="price_by_night">$80</div>
-					</div>
-					<div class="information">
-						<div class="max_guest">
-							<div class="guest_icon"></div>
-							<p>2 Guests</p>
-						</div>
-						<div class="number_rooms">
-							<div class="bed_icon"></div>
-							<p>1 Bedroom</p>
-						</div>
-						 <div class="number_bathrooms">
-							<div class="bath_icon"></div>
-							<p>1 Bathroom</p>
-						</div>
-					</div>
-					<div class="user"><b>Owner</b>: John Lennon</div>
-					<div class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        <header>
+        </header>
+        <div class="container">
+            <section class="filters">
+                <div class="locations">
+                    <h3>States</h3>
+                    <h4>Earth, Mars...</h4>
+                    <ul class="popover">
+                        <li><h2>Mercury:</h2></li>
+                        <li>
+                            <ul class="cities">
+                                <li>Caloris Basin</li>
+                                <li>Abedin Crater</li>
+                                <li>Picasso Crater</li>
+                            </ul>
+                        </li>
+                        <li><h2>Venus:</h2></li>
+                        <li>
+                            <ul class="cities">
+                                <li>Ishtar Terra</li>
+                                <li>Maxwell Montes</li>
+                                <li>Aphrodite Terra</li>
+                            </ul>
+                        </li>
+                        <li><h2>Earth:</h2></li>
+                        <li>
+                            <ul class="cities">
+                                <li>Colombia</li>
+                                <li>Canada</li>
+                                <li>Switzerland</li>
+                            </ul>
+                        </li>
+                        <li><h2>Mars:</h2></li>
+                        <li>
+                            <ul class="cities">
+                                <li>Korolev Crater</li>
+                                <li>Olympus Mons</li>
+                                <li>Jezero Crater</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="amenities">
+                    <h3>Amenities</h3>
+                    <h4>Rovers, Life pods...</h4>
+                    <ul class="popover">
+                        <li>Rovers</li>
+                        <li>Space suites</li>
+                        <li>Kitchen</li>
+                        <li>Internet</li>
+                        <li>Garage</li>
+                        <li>Life pods</li>
+                    </ul>
+                </div>
+                <button>
+                    Search
+                </button>
+            </section>
+            <section class="places">
+                <h1>Places</h1>
+                <article>
+                    <div class="price_by_night">
+                        $70
                     </div>
-				</article>
-				<article>
-					<div class="headline">
-						<h2>Tiny house</h2>
-						<div class="price_by_night">$65</div>
-					</div>
-					<div class="information">
+                    <h2>My Home</h2>
+                    <div class="information">
                         <div class="max_guest">
-                            <div class="guest_icon"></div>
-                            <p>4 Guests</p>
+                            <i class="fas fa-users fa-3x"></i><br>
+                            3 Guests
                         </div>
                         <div class="number_rooms">
-                            <div class="bed_icon"></div>
-                            <p>2 Bedroom</p>
+                            <i class="fas fa-bed fa-3x"></i><br>
+                            2 Bedrooms
                         </div>
-                         <div class="number_bathrooms">
-                            <div class="bath_icon"></div>
-                            <p>1 Bathroom</p>
+                        <div class="number_bathrooms">
+                            <i class="fas fa-bath fa-3x"></i><br>
+                            2 Bathrooms
                         </div>
                     </div>
-					<div class="user"><b>Owner</b>: Adrienne</div>
-					<div class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <div class="user">
+                        <strong>Owner: </strong>Rick
                     </div>
-				</article>
-				<article>
-					<div class="headline">
-						<h2>A suite</h2>
-						<div class="price_by_night">$180</div>
-					</div>
-					<div class="information">
-                        <div class="max_guest">
-                            <div class="guest_icon"></div>
-                            <p>5 Guests</p>
+                    <div class="description">
+                        This is my home, really nice home, I love my home. Come
+                        to my home, you'l love it too.
+                    </div>
+                </article>
+                <article>
+                    <div class="price_by_night">
+                        $234
+                    </div>
+                    <h2>Space Station</h2>
+                    <div class="information">
+                         <div class="max_guest">
+                            <i class="fas fa-users fa-3x"></i><br>
+                            23 Guests
                         </div>
                         <div class="number_rooms">
-                            <div class="bed_icon"></div>
-                            <p>3 Bedroom</p>
+                            <i class="fas fa-bed fa-3x"></i><br>
+                            12 Bedrooms
                         </div>
-                         <div class="number_bathrooms">
-                            <div class="bath_icon"></div>
-                            <p>2 Bathroom</p>
+                        <div class="number_bathrooms">
+                            <i class="fas fa-bath fa-3x"></i><br>
+                            5 Bathrooms
                         </div>
                     </div>
-					<div class="user"><b>Owner</b>: Betty Holberton</div>
-					<div class="description">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-				</article>
-			</section>
-		</div>
-		<footer>
-			<p>Holberton School</p>
-		</footer>
-	</body>
+                    <div class="user">
+                        <strong>Owner: </strong>Morty
+                    </div>
+                    <div class="description">
+                        A great space station for a great space traveler.
+                        Stay here and you will have spectaular views, really nice beds,
+                        and great common spaces.
+                    </div>
+                </article>
+                <article>
+                    <div class="price_by_night">
+                        $45
+                    </div>
+                    <h2>Tiny House</h2>
+                    <div class="information">
+                        <div class="max_guest">
+                            <i class="fas fa-users fa-3x"></i><br>
+                            2 Guests
+                        </div>
+                        <div class="number_rooms">
+                            <i class="fas fa-bed fa-3x"></i><br>
+                            2 Bedrooms
+                        </div>
+                        <div class="number_bathrooms">
+                            <i class="fas fa-bath fa-3x"></i><br>
+                            1 Bathroom
+                        </div>
+                    </div>
+                    <div class="user">
+                        <strong>Owner: </strong>Alejandro
+                    </div>
+                    <div class="description">
+                        This is a really cozy house, well located and you will not have weird neighbors,
+                        you'll love it here.
+                    </div>
+                </article>
+                <article>
+                    <div class="price_by_night">
+                        $235
+                    </div>
+                    <h2>Starship</h2>
+                    <div class="information">
+                        <div class="max_guest">
+                            <i class="fas fa-users fa-3x"></i><br>
+                            8 Guests
+                        </div>
+                        <div class="number_rooms">
+                            <i class="fas fa-bed fa-3x"></i><br>
+                            4 Bedrooms
+                        </div>
+                        <div class="number_bathrooms">
+                            <i class="fas fa-bath fa-3x"></i><br>
+                            3 Bathrooms
+                        </div>
+                    </div>
+                    <div class="user">
+                        <strong>Owner: </strong>Systems Alliance
+                    </div>
+                    <div class="description">
+                        This is the Normandy SR-2 starship, once under Commander Shepard orders,
+                        you can relive his adventures with your own crew.
+                    </div>
+                </article>
+            </section>
+        </div>
+        <footer>
+            Holberton School
+        </footer>
+    </body>
 </html>
